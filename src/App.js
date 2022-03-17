@@ -19,11 +19,15 @@ function ExternalUsers () {
   useEffect( () => { 
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setUsers(data))
    }, [])
   return (
    <div>
      <h2>External Users</h2>
+     <p>{users.length}</p>
+     {
+       users.map(user => <li>{user.name}</li>)
+     }
    </div>
   )
 }
