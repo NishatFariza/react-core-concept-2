@@ -12,14 +12,27 @@ function App() {
 }
  function Counter (){
    const [count, setCount] = useState(70);
-   const increaseCount = () => {
+   const increaseCount = () => setCount(count + 1); /*Single line function */
+   const decreaseCount = () => setCount(count - 1); /*Single line function */
+      
+   /* Multiline Function start*/ 
+   /* 
+     const newCount = count + 1;
+        setCount(count + 1) */
+   /* Multiline Function end*/ 
+
+   /*const increaseCount = () => {
        const newCount = count + 1;
        setCount(newCount)
    }
+   */
+  
+   /*jsx camelCase onClick function without call () */
    return (
      <div>
        <h1>Count: {count}</h1>
        <button onClick={increaseCount}>Increase</button>
+       <button onClick={decreaseCount}>Decrease</button>
      </div>
    )
  }
