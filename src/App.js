@@ -1,15 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   
   return (
     <div className="App">
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
+      <ExternalUsers></ExternalUsers>
     </div>
   );
 }
+
+function ExternalUsers () {
+  const [users, setUsers] = useState([]);
+
+  /*UseEffect er majhe arrow function */
+  useEffect( () => { 
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => console.log(data))
+   }, [])
+  return (
+   <div>
+     <h2>External Users</h2>
+   </div>
+  )
+}
+
  function Counter (){
    const [count, setCount] = useState(70);
    const increaseCount = () => setCount(count + 1); /*Single line function */
